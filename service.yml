@@ -1,0 +1,11 @@
+kind: Service
+metadata:
+  name: rajat-health1
+spec:
+  selector:
+    app: rajat-health1
+  ports:
+    - protocol: TCP
+      port: 82  # The port that the service will expose
+      targetPort: 82  # The container's port
+  type: LoadBalancer  # This will expose the app to the internet
