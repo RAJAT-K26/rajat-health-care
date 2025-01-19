@@ -16,4 +16,4 @@ spec:
         - name: rajat-health1
           image: rajatk2611/rajat-health1:1  # Replace with your Docker image
           ports:
-            - containerPort: 80
+            - containerPort: 82
