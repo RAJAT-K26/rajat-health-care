@@ -1,19 +1,33 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: rajat-health1
+name: healthcare
 spec:
-  replicas: 2  # Number of replicas (adjust based on your needs)
-  selector:
-    matchLabels:
-      app: rajat-health1
-  template:
-    metadata:
-      labels:
-        app: rajat-health1
-    spec:
-      containers:
-        - name: rajat-health1
-          image: rajatk2611/rajat-health1:1  # Replace with your Docker image
-          ports:
-            - containerPort: 82
+replicas: 1
+selector:
+matchLabels:
+name: healthcare
+template:
+metadata:
+name: testp1
+labels:
+name: healthcare
+spec:
+containers:
+- name: simple-container
+image: rajatk2611/healthcare-rajat:26
+ports:
+- containerPort: 8082
+---
+kind: Service
+apiVersion: v1
+metadata:
+name: healthcare
+spec:
+ports:
+- port: 80
+targetPort: 8082
+nodePort: 30007
+selector:
+name: healthcare
+type: NodePort
